@@ -175,11 +175,46 @@ CREATE TABLE IF NOT EXISTS "permissions" (
 ALTER TABLE "city" 
 ADD COLUMN "country" INT;
 
-
 ALTER TABLE "city"
     ADD CONSTRAINT "city_country_id" 
     FOREIGN KEY ("country")
     REFERENCES "country"("country_id");
 
 
+ALTER TABLE "roles"
+RENAME COLUMN "idRole" TO "role_id";
+
+ALTER TABLE "permissions" 
+ADD COLUMN "role" INT;
+
+ALTER TABLE "permissions"
+    ADD CONSTRAINT "permissions_role_id" 
+    FOREIGN KEY ("role")
+    REFERENCES "roles"("role_id");
+
+
+
+ALTER TABLE "users"
+ADD COLUMN "role" INT;
+
+ALTER TABLE "users"
+    ADD CONSTRAINT "user_role_id" 
+    FOREIGN KEY ("role")
+    REFERENCES "roles"("role_id");
+
+
+
+CREATE TABLE "users_templates" (
+  "user" INT REFERENCES "users" ("user_id"),
+  "template" INT REFERENCES "templates" ("template_id"),
+  CONSTRAINT "users_templates_id" PRIMARY KEY ("user", "template"));
+
+
+ALTER TABLE "nr_components"
+ADD COLUMN "template" INT;
+
+ALTER TABLE "nr_components"
+    ADD CONSTRAINT "nr_components_template_id" 
+    FOREIGN KEY ("template")
+    REFERENCES "templates"("template_id");
 
