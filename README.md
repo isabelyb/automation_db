@@ -1,6 +1,23 @@
 # automation_db
 making db in Postgres from terminal and deploy in Heroku
 
+# Postgres
+
+# Mokaro
+
+# Heroku
+
+
+
+
+
+# Ingest data mock up from Heroku CLI
+
+
+
+
+
+# Tables database
 <html>
 
 <body>
