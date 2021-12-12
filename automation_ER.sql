@@ -261,9 +261,9 @@ ALTER TABLE "users"
 
 
 CREATE TABLE "users_templates" (
-  "user" INT REFERENCES "users" ("user_id"),
-  "template" INT REFERENCES "templates" ("template_id"),
-  CONSTRAINT "users_templates_id" PRIMARY KEY ("user", "template"));
+  "user_id" INT REFERENCES "users" ("user_id"),
+  "template_id" INT REFERENCES "templates" ("template_id"),
+  CONSTRAINT "users_templates_id" PRIMARY KEY ("user_id", "template_id"));
 
 
 ALTER TABLE "nr_components"
@@ -289,3 +289,93 @@ ALTER TABLE "sessions"
     FOREIGN KEY ("user")
     REFERENCES "users"("user_id");
 
+
+ALTER TABLE "applicants"
+ADD COLUMN "address" INT NOT NULL;
+
+ALTER TABLE "applicants"
+    ADD CONSTRAINT "applicant_address" 
+    FOREIGN KEY ("address")
+    REFERENCES "address"("address_id");
+
+
+
+ALTER TABLE "address"
+ADD COLUMN "city" INT NOT NULL;
+
+ALTER TABLE "address"
+    ADD CONSTRAINT "address_city" 
+    FOREIGN KEY ("city")
+    REFERENCES "city"("city_id");
+
+
+
+ALTER TABLE "applicants"
+ADD COLUMN "user_id" INT NOT NULL;
+
+ALTER TABLE "applicants"
+    ADD CONSTRAINT "applicant_user"
+    FOREIGN KEY ("user_id")
+    REFERENCES "users"("user_id");
+
+
+
+CREATE TABLE "education_applicant" (
+  "applicant_id" INT REFERENCES "applicants" ("applicant_id"),
+  "education_id" INT REFERENCES "education" ("education_id"),
+  CONSTRAINT "education_applicant_id" PRIMARY KEY ("applicant_id", "education_id"));
+
+
+CREATE TABLE "skills_applicant" (
+  "applicant_id" INT REFERENCES "applicants" ("applicant_id"),
+  "skill_id" INT REFERENCES "skills" ("skill_id"),
+  CONSTRAINT "skills_applicant_id" PRIMARY KEY ("applicant_id", "skill_id"));
+
+
+ALTER TABLE "city"
+    DROP CONSTRAINT "city_country_id";
+
+ALTER TABLE "address"
+    DROP CONSTRAINT "address_city";
+
+DROP TABLE "city";
+
+DROP TABLE"country";
+
+ALTER TABLE "address"
+RENAME COLUMN "city" TO "country";
+
+
+CREATE TABLE IF NOT EXISTS "country" (
+  "country_id" INT NOT NULL,
+  "name" VARCHAR(45) NOT NULL,
+  "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP NOT NULL,
+  "created_by" INT NOT NULL,
+  "updated_by" INT NOT NULL,
+  PRIMARY KEY ("country_id"));
+
+
+CREATE TABLE IF NOT EXISTS "city" (
+  "city_id" INT NOT NULL,
+  "name" VARCHAR(45) NOT NULL,
+  "updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "created_at" TIMESTAMP NOT NULL,
+  "created_by" INT NOT NULL,
+  "updated_by" INT NOT NULL,
+  PRIMARY KEY ("city_id"));
+
+ALTER TABLE "city" 
+ADD COLUMN "country" INT;
+
+
+ALTER TABLE "city"
+    ADD CONSTRAINT "city_country_id" 
+    FOREIGN KEY ("country")
+    REFERENCES "country"("country_id");
+
+
+ALTER TABLE "address"
+    ADD CONSTRAINT "address_country" 
+    FOREIGN KEY ("country")
+    REFERENCES "country"("country_id");
