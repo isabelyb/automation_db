@@ -10,6 +10,13 @@ CREATE TABLE IF NOT EXISTS "country" (
   "user_id" INT NOT NULL,
   PRIMARY KEY ("country_id"));
 
+ALTER TABLE "country"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "country" 
+ADD COLUMN "updated_by" INT NOT NULL;
+
+
 -- -----------------------------------------------------
 -- Table city
 -- -----------------------------------------------------
@@ -35,6 +42,13 @@ CREATE TABLE IF NOT EXISTS "address" (
   "user_id" INT NOT NULL,
   PRIMARY KEY ("address_id"));
 
+ALTER TABLE "address"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "address" 
+ADD COLUMN "updated_by" INT NOT NULL;
+
+
 
 -- -----------------------------------------------------
 -- Table applicants
@@ -52,7 +66,11 @@ CREATE TABLE IF NOT EXISTS "applicants" (
   "user_id" TIMESTAMP NOT NULL,
    PRIMARY KEY ("applicant_id"));
 
+ALTER TABLE "applicants"
+RENAME COLUMN "user_id" TO "created_by";
 
+ALTER TABLE "applicants"
+ADD COLUMN "updated_by" INT NOT NULL;
 -- -----------------------------------------------------
 -- Table "templates"
 -- -----------------------------------------------------
@@ -64,6 +82,12 @@ CREATE TABLE IF NOT EXISTS "templates" (
   "updated_at" TIMESTAMP NOT NULL,
   "user_id" INT NOT NULL,
   PRIMARY KEY ("template_id"));
+
+ALTER TABLE "templates"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "templates"
+ADD COLUMN "updated_by" INT NOT NULL;
 
 
 -- -----------------------------------------------------
@@ -78,6 +102,12 @@ CREATE TABLE IF NOT EXISTS "roles" (
   "updated_at" TIMESTAMP NOT NULL,
   "user_id" INT NOT NULL,
   PRIMARY KEY ("idRole"));
+
+ALTER TABLE "roles"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "roles"
+ADD COLUMN "updated_by" INT NOT NULL;
 
 
 -- -----------------------------------------------------
@@ -94,7 +124,6 @@ CREATE TABLE IF NOT EXISTS "users" (
   "created_at" TIMESTAMP NOT NULL,
   "updated_at" TIMESTAMP NOT NULL,
   PRIMARY KEY ("user_id"));
-
 
 -- -----------------------------------------------------
 -- Table "sessions"
@@ -124,6 +153,11 @@ CREATE TABLE IF NOT EXISTS "skills" (
   "user_id" INT NOT NULL,
   PRIMARY KEY ("skill_id"));
 
+ALTER TABLE "skills"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "skills"
+ADD COLUMN "updated_by" INT NOT NULL;
 
 -- -----------------------------------------------------
 -- Table "education"
@@ -139,7 +173,11 @@ CREATE TABLE IF NOT EXISTS "education" (
   "user_id" INT NOT NULL,
   PRIMARY KEY ("education_id"));
 
+ALTER TABLE "education"
+RENAME COLUMN "user_id" TO "created_by";
 
+ALTER TABLE "education"
+ADD COLUMN "updated_by" INT NOT NULL;
 -- -----------------------------------------------------
 -- Table "nr_components"
 -- -----------------------------------------------------
@@ -149,6 +187,12 @@ CREATE TABLE IF NOT EXISTS "nr_components" (
   "updated_at" TIMESTAMP NOT NULL,
   "user_id" INT NOT NULL,
   PRIMARY KEY ("nr_components_id"));
+
+ALTER TABLE "nr_components"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "nr_components"
+ADD COLUMN "updated_by" INT NOT NULL;
 
 
 -- -----------------------------------------------------
@@ -167,10 +211,22 @@ CREATE TABLE IF NOT EXISTS "permissions" (
   "user_id" INT NOT NULL,
   PRIMARY KEY ("permission_id"));
 
+ALTER TABLE "permissions"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "permissions"
+ADD COLUMN "updated_by" INT NOT NULL;
+
 
 -- -----------------------------------------------------
 -- Foreign Keys
 -- -----------------------------------------------------
+
+ALTER TABLE "city"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "city" 
+ADD COLUMN "updated_by" INT NOT NULL;
 
 ALTER TABLE "city" 
 ADD COLUMN "country" INT;
@@ -217,4 +273,19 @@ ALTER TABLE "nr_components"
     ADD CONSTRAINT "nr_components_template_id" 
     FOREIGN KEY ("template")
     REFERENCES "templates"("template_id");
+
+
+ALTER TABLE "sessions"
+ADD COLUMN "user" INT;
+
+ALTER TABLE "sessions"
+RENAME COLUMN "user_id" TO "created_by";
+
+ALTER TABLE "sessions"
+DROP COLUMN "created_by";
+
+ALTER TABLE "sessions"
+    ADD CONSTRAINT "sessions_users" 
+    FOREIGN KEY ("user")
+    REFERENCES "users"("user_id");
 
