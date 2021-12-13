@@ -1,6 +1,8 @@
 # Deployment of a PostgreSQL Database in Heroku 
 
-## 1. Heroku
+## 1. Configure Heroku and set a Postgre database.
+
+
 
 ## 2. Write a Postgres script to create the database tables.
 
@@ -11,11 +13,11 @@ According to ER diagmam write the sentences to create the database tables. âž¡ï¸
 
 ## 3. Ingest data mock up from Heroku CLI
 
-### Mokaro
+### 3.1 Mokaro
 
-### Ingest data
+### 3.2 Ingest data
 
-### Test queries
+### 3.3 Test queries
 
 <html>
 <body>
