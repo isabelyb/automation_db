@@ -6,7 +6,7 @@
 
 According to ER diagmam write the sentences to create the database tables. ➡️ [automation_ER.sql](automation_ER.sql)
 
-![Database ER Diagram]()
+![Database ER Diagram](assets/automationdb.svg)
 
 
 ## 3. Ingest data mock up from Heroku CLI
