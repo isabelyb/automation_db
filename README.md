@@ -39,16 +39,42 @@ Introduce the sentences to create the database tables:
 ```
 heroku pg:psql --app app_name < script.sql 
 ```
+Here you have a database in Heroku and it's ready to store data.
+
 ![tables](assets/tables.jpg)
 
 
 ## 4. Ingest data mock up from Heroku CLI
 
-### 4.1 Mokaro
+### 4.1 Create a data sample
+
+To get a data mockup you can use  [mokaroo](https://mockaroo.com/):
+
+![data_sample](assets/data_sample.jpg)
+
 
 ### 4.2 Ingest data
 
+Introduce the sentences to create the database tables:
+
+```
+heroku pg:psql --app app_name < mockup.sql
+```
+Here you have your data in the database. 
+
+![data_ingest](assets/data_ingest.jpg)
+
+
 ### 4.3 Test queries
+
+In the Dataclips interface, you can try some queries in order to verify the data ingest:
+
+
+![tables](assets/querie.jpg)
+
+Then you can download the data in ```.cvs``` or ```.json``` format.
+
+
 
 <html>
 <body>
