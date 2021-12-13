@@ -1,8 +1,8 @@
 # Deployment of a PostgreSQL Database in Heroku 
 
-## 1 Configure Heroku CLI
+This is an exercise to try Postgres and Heroku.
 
-## 2 Set a Postgres Database
+## 1 Set a Postgres Database
 1. Create a new Heroku app.
 2. Add a PostreSQL database:
 	*  Navigate to the Resources tab in the header of your newly created app's dahsboard. 
@@ -13,12 +13,33 @@
 	* Now select the Settings tab in the header of that screen.
 	* Here, you can click the View Credentials button to see the credentials of your PostgreSQL database.
 
+## 2 Configure Heroku CLI
+
+The Heroku Command Line Interface (CLI) makes it easy to create and manage your Heroku apps directly from the terminal. 
+It’s an essential part of using Heroku.
+
+* In case you dont have installed foolow the instructons from Heroku site](https://devcenter.heroku.com/articles/heroku-cli)
+* Login in your terminal.
+* To test the conection you should introduce credentials:
+	```
+	heroku pg:psql postgresql-solid-19555 --app name_app
+	```
+	![credentials](assets/credencials.jpg)
 
 ## 3. Write a Postgres script to create the database tables.
 
 According to ER diagmam write the sentences to create the database tables. ➡️ [automation_ER.sql](automation_ER.sql)
 
 ![Database ER Diagram](assets/automationdb.png)
+
+## 4. Create the database from terminal
+
+Introduce the sentences to create the database tables:
+
+```
+heroku pg:psql --app app_name < script.sql 
+```
+![tables](assets/tables.jpg)
 
 
 ## 4. Ingest data mock up from Heroku CLI
@@ -1971,4 +1992,4 @@ According to ER diagmam write the sentences to create the database tables. ➡�
 # Resourses:
 
 * To read more about [How to set up a free PostgreSQL database on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1).
-* 
+* (https://devcenter.heroku.com/articles/heroku-cli)
