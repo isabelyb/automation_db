@@ -39,6 +39,8 @@ Introduce the sentences to create the database tables:
 ```
 heroku pg:psql --app app_name < script.sql 
 ```
+Here you have a database in Heroku and it's ready to store data.
+
 ![tables](assets/tables.jpg)
 
 
