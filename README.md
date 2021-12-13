@@ -46,7 +46,12 @@ Here you have a database in Heroku and it's ready to store data.
 
 ## 4. Ingest data mock up from Heroku CLI
 
-### 4.1 Mokaro
+### 4.1 Create a data sample
+
+To get a data mockup you can use  [mokaroo](https://mockaroo.com/):
+
+![tables](assets/data_sample.jpg)
+
 
 ### 4.2 Ingest data
 
