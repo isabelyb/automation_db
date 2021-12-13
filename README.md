@@ -1,34 +1,33 @@
 # Deployment of a PostgreSQL Database in Heroku 
 
-## 1. Configure Heroku and set a Postgres database.
+## 1 Configure Heroku CLI
 
-### 1.1 
+## 2 Set a Postgres Database
 1. Create a new Heroku app.
 2. Add a PostreSQL database:
 	*  Navigate to the Resources tab in the header of your newly created app's dahsboard. 
 	*  Then type Heroku Postgres into the Add-ons search field.When shown, select the suggested Heroku Postgres add-on from the dropdown.
 	*  The next popup asks you to choose a pricing plan for the database. Select the Hobby Dev - Free plan and click Provision.
-4. Access the database credentials (and connection URL)
+3. Access the database credentials (and connection URL)
 	* Navigate to the Resources tab in your app's dashboard again and select the Heroku Postgres resource.
 	* Now select the Settings tab in the header of that screen.
 	* Here, you can click the View Credentials button to see the credentials of your PostgreSQL database.
 
 
-
-## 2. Write a Postgres script to create the database tables.
+## 3. Write a Postgres script to create the database tables.
 
 According to ER diagmam write the sentences to create the database tables. ➡️ [automation_ER.sql](automation_ER.sql)
 
 ![Database ER Diagram](assets/automationdb.png)
 
 
-## 3. Ingest data mock up from Heroku CLI
+## 4. Ingest data mock up from Heroku CLI
 
-### 3.1 Mokaro
+### 4.1 Mokaro
 
-### 3.2 Ingest data
+### 4.2 Ingest data
 
-### 3.3 Test queries
+### 4.3 Test queries
 
 <html>
 <body>
