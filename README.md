@@ -50,7 +50,26 @@ Here you have a database in Heroku and it's ready to store data.
 
 ### 4.2 Ingest data
 
+Introduce the sentences to create the database tables:
+
+```
+heroku pg:psql --app app_name < mockup.sql
+```
+Here you have your data in the database. 
+
+![tables](assets/data_ingest.jpg)
+
+
 ### 4.3 Test queries
+
+In the Dataclips interface, you can try some queries in order to verify the data ingest:
+
+
+![tables](assets/querie.jpg)
+
+Then you can download the data in ```.cvs``` or ```.json``` format.
+
+
 
 <html>
 <body>
