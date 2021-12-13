@@ -50,7 +50,7 @@ Here you have a database in Heroku and it's ready to store data.
 
 To get a data mockup you can use  [mokaroo](https://mockaroo.com/):
 
-![tables](assets/data_sample.jpg)
+![data_sample](assets/data_sample.jpg)
 
 
 ### 4.2 Ingest data
@@ -62,7 +62,7 @@ heroku pg:psql --app app_name < mockup.sql
 ```
 Here you have your data in the database. 
 
-![tables](assets/data_ingest.jpg)
+![data_ingest](assets/data_ingest.jpg)
 
 
 ### 4.3 Test queries
