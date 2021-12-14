@@ -2015,7 +2015,7 @@ Then you can download the data in ```.cvs``` or ```.json``` format.
 </footer> </body>
 </html>
 
-# Resourses:
+# Resources:
 
 * To read more about [How to set up a free PostgreSQL database on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1).
-* (https://devcenter.heroku.com/articles/heroku-cli)
+* To read more about install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
