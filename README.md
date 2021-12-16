@@ -41,12 +41,16 @@ heroku login
 ```
 
 * To test the conection you should introduce credentials:
-	```
-	heroku pg:psql postgresql-solid-19555 --app name_app
-	```
-	![credentials](assets/credencials.jpg)
+```
+heroku pg:psql postgresql-solid-19555 --app name_app
+```
+![credentials](assets/credencials.jpg)
 
-
+* Then, to exit:
+```
+exit
+```
+	
 * Introduce the sentences to create the database tables:
 
 ```
