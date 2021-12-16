@@ -19,12 +19,14 @@ The Heroku Command Line Interface (CLI) makes it easy to create and manage your 
 It’s an essential part of using Heroku.
 
 * In case you dont have installed foolow the instructons from Heroku site](https://devcenter.heroku.com/articles/heroku-cli)
-* Login in your terminal.
-* To test the conection you should introduce credentials:
+	* In Linux 
 	```
-	heroku pg:psql postgresql-solid-19555 --app name_app
+	sudo snap install --classic heroku
 	```
-	![credentials](assets/credencials.jpg)
+	To verify installation:
+	```
+	heroku --version
+	```
 
 ## 3. Write a Postgres script to create the database tables.
 
@@ -33,8 +35,19 @@ According to ER diagmam write the sentences to create the database tables. ➡�
 ![Database ER Diagram](assets/automationdb.png)
 
 ## 4. Create the database from terminal
+* Login in your terminal.
+```
+heroku login
+```
 
-Introduce the sentences to create the database tables:
+* To test the conection you should introduce credentials:
+	```
+	heroku pg:psql postgresql-solid-19555 --app name_app
+	```
+	![credentials](assets/credencials.jpg)
+
+
+* Introduce the sentences to create the database tables:
 
 ```
 heroku pg:psql --app app_name < script.sql 
