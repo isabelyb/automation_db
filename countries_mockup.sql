@@ -1,4 +1,4 @@
-insert into country (country_id, name, created_at, created_by, updated_at, updated_by) values (1, 'Colombia', '2021-12-12 00:00:00', 203, '2021-12-13 00:00:00', 210);
+insert into countries (country_id, name, created_at, created_by, updated_at, updated_by) values (1, 'Colombia', '2021-12-12 00:00:00', 203, '2021-12-13 00:00:00', 210);
 insert into country (country_id, name, created_at, created_by, updated_at, updated_by) values (2, 'China', '2021-12-12 00:00:00', 201, '2021-12-13 00:00:00', 209);
 insert into country (country_id, name, created_at, created_by, updated_at, updated_by) values (3, 'China', '2021-12-12 00:00:00', 202, '2021-12-13 00:00:00', 207);
 insert into country (country_id, name, created_at, created_by, updated_at, updated_by) values (4, 'Serbia', '2021-12-12 00:00:00', 202, '2021-12-13 00:00:00', 208);
